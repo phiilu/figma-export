@@ -16,10 +16,30 @@ common:
     nameValidateRegexp: '^([a-zA-Z_]+)$' # RegExp pattern for: background, background_primary, widget_primary_background
     # [optional] RegExp pattern for replacing. Supports only $n
     nameReplaceRegexp: 'color_$1'
+    # [optional] List of color names to exclude from export. Supports wildcard patterns, for example: ["background", "background/*"]
+    exclude: []
     # [optional] Extract light and dark mode colors from the lightFileId specified in the figma params. Defaults to false
     useSingleFile: false
     # [optional] If useSingleFile is true, customize the suffix to denote a dark mode color. Defaults to '_dark'
     darkModeSuffix: '_dark'
+  # [optional]
+  variablesColors:
+    # [required] Identifier of the file containing variables
+    tokensFileId: shPilWnVdJfo10YF12345
+    # [required] Variables collection name
+    tokensCollectionName: Base collection
+    # [required] Name of the column containing light color variables in the tokens table
+    lightModeName: Light
+    # [optional] Name of the column containing dark color variables in the tokens table
+    darkModeName: Dark
+    # [optional] Name of the column containing color variables in the primitive table. If a value is not specified, the default values ​​will be taken
+    primitivesModeName: Collection_1
+    # [optional] RegExp pattern for color name validation before exporting. If a name contains "/" symbol it will be replaced by "_" before executing the RegExp
+    nameValidateRegexp: '^([a-zA-Z_]+)$'
+    # [optional] RegExp pattern for replacing. Supports only $n
+    nameReplaceRegexp: 'color_$1'
+    # [optional] List of variable names to exclude from export. Supports wildcard patterns, for example: ["background", "background/*"]
+    exclude: []
   # [optional]
   icons:
     # [optional] Name of the Figma's frame where icons components are located
